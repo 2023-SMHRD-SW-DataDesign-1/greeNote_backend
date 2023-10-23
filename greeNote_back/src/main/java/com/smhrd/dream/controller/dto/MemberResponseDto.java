@@ -14,4 +14,8 @@ public class MemberResponseDto {
     public static MemberResponseDto of(Member member) {
         return new MemberResponseDto(member.getMemberid());
     }
+    
+    public static MemberResponseDto duplicated(String message) {
+    	return new MemberResponseDto(message);
+    }
 }

@@ -29,7 +29,9 @@ public class AuthService {
 	@Transactional
 	public MemberResponseDto signup(MemberRequestDto memberRequestDto) {
 		if (memberRepository.existsByMemberid(memberRequestDto.getMemberid())) {
-			throw new RuntimeException("이미 가입되어 있는 유저입니다");
+			// 아이디 중복 시 흐름 작성
+			String message = "중복된 아이디 입니다.";
+			return MemberResponseDto.duplicated(message);
 		}
 
 		Member member = memberRequestDto.toMember(passwordEncoder);

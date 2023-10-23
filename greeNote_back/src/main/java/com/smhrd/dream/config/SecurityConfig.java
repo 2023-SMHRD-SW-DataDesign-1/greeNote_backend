@@ -8,6 +8,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.web.cors.reactive.CorsConfigurationSource;
 
 import com.smhrd.dream.jwt.JwtAccessDeniedHandler;
 import com.smhrd.dream.jwt.JwtAuthenticationEntryPoint;
@@ -27,17 +28,10 @@ public class SecurityConfig {
         return new BCryptPasswordEncoder();
     }
 
-    // h2 database 테스트가 원활하도록 관련 API 들은 전부 무시
-    @Bean
-    public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring()
-                .antMatchers("/h2-console/**", "/favicon.ico");
-    }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
             // CSRF 설정 Disable
-        http.csrf().disable()
+        http.cors().and().csrf().disable()
 
             // exception handling 할 때 우리가 만든 클래스를 추가
             .exceptionHandling()
