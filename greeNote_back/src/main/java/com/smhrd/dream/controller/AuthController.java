@@ -1,25 +1,23 @@
 package com.smhrd.dream.controller;
 
-import com.smhrd.dream.controller.dto.MemberRequestDto;
-import com.smhrd.dream.controller.dto.MemberResponseDto;
-import com.smhrd.dream.controller.dto.TokenRequestDto;
-import com.smhrd.dream.controller.dto.TokenDto;
-import com.smhrd.dream.service.AuthService;
-import lombok.RequiredArgsConstructor;
-
-import java.net.http.HttpHeaders;
-
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.smhrd.dream.controller.dto.MemberRequestDto;
+import com.smhrd.dream.controller.dto.MemberResponseDto;
+import com.smhrd.dream.controller.dto.TokenDto;
+import com.smhrd.dream.controller.dto.TokenRequestDto;
+import com.smhrd.dream.service.AuthService;
+
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/auth")
@@ -29,6 +27,7 @@ public class AuthController {
 
 	@PostMapping("/signup")
 	public ResponseEntity<MemberResponseDto> signup(@RequestBody MemberRequestDto memberRequestDto) {
+		System.out.println(memberRequestDto.getMemberid());
 		return ResponseEntity.ok(authService.signup(memberRequestDto));
 	}
 

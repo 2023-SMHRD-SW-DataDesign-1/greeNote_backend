@@ -7,9 +7,9 @@ import lombok.*;
 @AllArgsConstructor
 public class GardeningDto {
 
-	private String water;
-	private String repot;
-	private String nutrition;
-	private String ventilation;
+	private int watering;
+	private int repotting;
+	private int nutrition_management;
+	private int ventilation;
 
 }

@@ -1,11 +1,11 @@
 package com.smhrd.dream.repository;
 
-import com.smhrd.dream.controller.dto.MemberRequestDto;
-import com.smhrd.dream.entity.Member;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import com.smhrd.dream.entity.Member;
 
 @Repository
 public interface MemberRepository extends JpaRepository<Member, Long> {

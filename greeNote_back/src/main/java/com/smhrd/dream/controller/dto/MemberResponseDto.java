@@ -1,9 +1,9 @@
 package com.smhrd.dream.controller.dto;
 
 import com.smhrd.dream.entity.Member;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

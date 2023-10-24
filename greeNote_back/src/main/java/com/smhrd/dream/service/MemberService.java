@@ -1,11 +1,12 @@
 package com.smhrd.dream.service;
 
-import com.smhrd.dream.controller.dto.MemberResponseDto;
-import com.smhrd.dream.repository.MemberRepository;
-import com.smhrd.dream.util.SecurityUtil;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.smhrd.dream.controller.dto.MemberResponseDto;
+import com.smhrd.dream.repository.MemberRepository;
+
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor

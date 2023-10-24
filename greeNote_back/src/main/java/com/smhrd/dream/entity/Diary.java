@@ -15,29 +15,24 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "plant_list")
+@Table(name = "diary")
 @Entity
 @Builder
-public class PlantList {
-	
-	@Id
-	@Column(name = "plant_id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long plant_id;
-	
+public class Diary {
+
 	private Long id;
 	
-	private String image_url;
-	
-    private String title;
-    
-    private String nickname;
-    
-    private String message;
-    
-    private String color;
-    
-    private String start_date;
+	@Id
+	@Column(name = "diary_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long diary_id;
 
-    private String watering_date;
+	private Long plant_id;
+	
+	private String title;
+	
+	private String content;
+	
+	private String ai_result;
+	
 }

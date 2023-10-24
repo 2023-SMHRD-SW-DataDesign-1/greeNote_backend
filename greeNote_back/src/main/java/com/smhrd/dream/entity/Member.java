@@ -46,15 +46,6 @@ public class Member {
 		this.membername = membername;
 		this.nickname = nickname;
 		this.authority = authority;
-	}
-
-	@Builder
-	public Member(String memberid, String password, String membername, String nickname) {
-		this.memberid = memberid;
-		this.password = password;
-		this.membername = membername;
-		this.nickname = nickname;
-	}
-	
+	}	
 	
 }
