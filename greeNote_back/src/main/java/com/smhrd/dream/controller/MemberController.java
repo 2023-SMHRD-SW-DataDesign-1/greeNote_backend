@@ -26,7 +26,6 @@ public class MemberController {
 
 	@GetMapping("/{memberid}")
 	public ResponseEntity<MemberResponseDto> findMemberInfoByMemberid(@PathVariable String memberid) {
-		System.out.println(memberid);
 		return ResponseEntity.ok(memberService.findMemberInfoByMemberid(memberid));
 	}
 }

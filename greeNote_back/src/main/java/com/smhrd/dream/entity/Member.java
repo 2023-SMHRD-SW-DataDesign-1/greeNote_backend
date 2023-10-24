@@ -9,12 +9,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "member")
 @Entity
 public class Member {
@@ -43,4 +47,14 @@ public class Member {
 		this.nickname = nickname;
 		this.authority = authority;
 	}
+
+	@Builder
+	public Member(String memberid, String password, String membername, String nickname) {
+		this.memberid = memberid;
+		this.password = password;
+		this.membername = membername;
+		this.nickname = nickname;
+	}
+	
+	
 }

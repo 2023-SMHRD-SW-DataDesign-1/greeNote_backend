@@ -28,6 +28,8 @@ public class PlantList {
 	
     private String title;
     
+    private String nickname;
+    
     private String message;
     
     private String color;

@@ -83,7 +83,7 @@ public class AuthService {
 			throw new RuntimeException("토큰의 유저 정보가 일치하지 않습니다.");
 			// 사용 거부 명령을 전달한 뒤 로그인 페이지로 유도할 것
 		}
-
+		
 		// 5. 새로운 토큰 생성
 		TokenDto tokenDto = tokenProvider.generateTokenDto(authentication);
 		

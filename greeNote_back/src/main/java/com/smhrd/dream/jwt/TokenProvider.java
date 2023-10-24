@@ -1,5 +1,6 @@
 package com.smhrd.dream.jwt;
 
+import com.smhrd.dream.controller.dto.MemberRequestDto;
 import com.smhrd.dream.controller.dto.TokenDto;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -40,7 +41,6 @@ public class TokenProvider {
 				.collect(Collectors.joining(","));
 
 		long now = (new Date()).getTime();
-
 		// Access Token 생성
 		Date accessTokenExpiresIn = new Date(now + ACCESS_TOKEN_EXPIRE_TIME);
 		String accessToken = Jwts.builder().setSubject(authentication.getName()) // payload "sub": "name"
