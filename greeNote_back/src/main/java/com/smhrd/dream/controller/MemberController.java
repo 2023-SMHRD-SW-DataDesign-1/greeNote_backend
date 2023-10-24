@@ -16,7 +16,6 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/member")
-@CrossOrigin("https://localhost:3000")
 public class MemberController {
 	private final MemberService memberService;
 

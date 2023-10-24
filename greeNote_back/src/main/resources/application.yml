@@ -9,9 +9,6 @@ server:
       cookie:
         samesite: None
 spring:
-  h2:
-    console:
-      enabled: true
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver

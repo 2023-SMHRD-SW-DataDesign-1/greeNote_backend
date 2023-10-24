@@ -67,7 +67,7 @@ public class AuthService {
 		// 1. Refresh Token 검증
 		if (!tokenProvider.validateToken(tokenRequestDto.getRefreshToken())) {
 			throw new RuntimeException("Refresh Token 이 유효하지 않습니다.");
-			// 로그아웃을 하지 않았지만, 리프레시 토큰이 만료되었다면 다시 로그인 하도록 유도할 것 
+			// 로그아웃을 하지 않았지만, 리프레시 토큰이 만료되었다면 다시 로그인 하도록 유도할 것
 		}
 
 		// 2. Access Token 에서 Member ID 가져오기
