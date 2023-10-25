@@ -1,5 +1,6 @@
 package com.smhrd.dream.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -22,7 +23,8 @@ public class Diary_Image {
 	private Long id;
 
 	@Id
-	private Long diary_id;
+	@Column(name = "diary_id")
+	private Long diaryId;
 
 	private String image_url;
 	

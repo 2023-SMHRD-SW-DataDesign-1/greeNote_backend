@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.smhrd.dream.controller.dto.DiaryCombinDto;
 import com.smhrd.dream.controller.dto.DiaryDto;
 import com.smhrd.dream.entity.Diary;
 import com.smhrd.dream.service.DiaryService;
@@ -44,10 +45,23 @@ public class DiaryController {
 	}
 	
 	@GetMapping("/readDiary/{plant_id}")
-	public List<Diary> readDiary(@PathVariable String plant_id) {
+	public List<DiaryCombinDto> readDiary(@PathVariable String plant_id) {
 		System.out.println(plant_id);
-		List<Diary> diaryList = diaryService.readDiary(plant_id);
+		List<DiaryCombinDto> diaryList = diaryService.readDiary(plant_id);
 		return diaryList;
 	}
 
+	@GetMapping("/readByDay/{registration_date}")
+	public List<Diary> readByDay(@PathVariable String registration_date, HttpServletRequest request) {
+		Cookie[] cookies = request.getCookies();
+		String accessToken = null;
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if ("accessToken".equals(cookie.getName())) {
+					accessToken = cookie.getValue();
+				}
+			}
+		}
+		return diaryService.readByDay(registration_date, accessToken);
+	}
 }

@@ -38,14 +38,18 @@ public class Member {
 
 	@Enumerated(EnumType.STRING)
 	private Authority authority;
+	
+	@Column(name = "profile_img")
+	private String profileImg;
 
 	@Builder
-	public Member(String memberid, String password, String membername, String nickname, Authority authority) {
+	public Member(String memberid, String password, String membername, String nickname, Authority authority, String profileImg) {
 		this.memberid = memberid;
 		this.password = password;
 		this.membername = membername;
 		this.nickname = nickname;
 		this.authority = authority;
+		this.profileImg = profileImg;
 	}	
 	
 }

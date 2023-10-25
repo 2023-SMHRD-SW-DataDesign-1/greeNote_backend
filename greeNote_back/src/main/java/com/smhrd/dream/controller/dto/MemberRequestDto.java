@@ -15,6 +15,7 @@ public class MemberRequestDto {
     private String membername;
     private String nickname;
     private String password;
+    private String profileImg;
 
     public Member toMember(PasswordEncoder passwordEncoder) {
         return Member.builder()
@@ -22,6 +23,7 @@ public class MemberRequestDto {
                 .password(passwordEncoder.encode(password))
                 .membername(membername)
                 .nickname(nickname)
+                .profileImg(profileImg)
                 .authority(Authority.ROLE_USER)
                 .build();
     }

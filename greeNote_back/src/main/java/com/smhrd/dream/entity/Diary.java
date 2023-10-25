@@ -25,7 +25,7 @@ public class Diary {
 	@Id
 	@Column(name = "diary_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long diary_id;
+	private Long diaryId;
 
 	@Column(name = "plant_id")
 	private Long plantId;
@@ -34,8 +34,10 @@ public class Diary {
 	
 	private String content;
 	
-	private String ai_result;
+	@Column(name = "ai_result")
+	private String aiResult;
 	
-	private String registration_date;
+	@Column(name = "registration_date")
+	private String registrationDate;
 	
 }

@@ -13,6 +13,7 @@ public class DiaryDto {
 	private String title;
 	private String content;
 	private String ai_result;
+	private String registration_date;
 	
 	private Diary_ImageDto[] diary_imageDto;
 

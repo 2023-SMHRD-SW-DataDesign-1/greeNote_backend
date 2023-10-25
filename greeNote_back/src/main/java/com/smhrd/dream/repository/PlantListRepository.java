@@ -10,7 +10,5 @@ import com.smhrd.dream.entity.PlantList;
 
 @Repository
 public interface PlantListRepository extends JpaRepository<PlantList, Long>{
-
 	List<Optional<PlantList>> findAllById(Long id);
-
 }
