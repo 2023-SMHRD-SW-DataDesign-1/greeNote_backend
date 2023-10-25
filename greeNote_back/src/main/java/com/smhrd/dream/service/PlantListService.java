@@ -2,6 +2,7 @@ package com.smhrd.dream.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -53,5 +54,16 @@ public class PlantListService {
 		result.add(gardenResult);
 		
 		return result;
+	}
+
+	public List<Optional<PlantList>> readPlantList(String accessToken) {
+		Long id = null;
+		if (accessToken != null) {
+			byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+			Claims claims = Jwts.parserBuilder().setSigningKey(Keys.hmacShaKeyFor(keyBytes)).build()
+					.parseClaimsJws(accessToken).getBody();
+			id = Long.parseLong(claims.getSubject());
+		}
+		return plantListRepository.findAllById(id);
 	}
 }

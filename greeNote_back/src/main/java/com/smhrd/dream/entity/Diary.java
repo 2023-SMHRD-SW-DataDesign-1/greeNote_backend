@@ -27,12 +27,15 @@ public class Diary {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long diary_id;
 
-	private Long plant_id;
+	@Column(name = "plant_id")
+	private Long plantId;
 	
 	private String title;
 	
 	private String content;
 	
 	private String ai_result;
+	
+	private String registration_date;
 	
 }

@@ -45,14 +45,14 @@ public class DiaryService {
 
 			// Plant_id는 현재 임의의 값 넣어놨음. 나중에 조회 기능 만들때 client에서부터 가져올 수 있도록 할 것
 			Diary diary = new Diary(id, null, diaryDto.getPlant_id(), diaryDto.getTitle(), diaryDto.getContent(),
-					diaryDto.getAi_result());
-			Diary diaryResult = diaryRepository.save(diary);
+					diaryDto.getAi_result(), null);
+			Diary diaryResult = diaryRepository.save(diary);	
 
 			ObjectMapper objectMapper = new ObjectMapper();
 			String jsonArray;
 			jsonArray = objectMapper.writeValueAsString(diaryDto.getDiary_imageDto());
-			
-			Diary_Image diary_image = new Diary_Image(id, diaryResult.getDiary_id(), jsonArray);
+
+			Diary_Image diary_image = new Diary_Image(id, diaryResult.getDiary_id(), jsonArray, null);
 			Diary_Image diary_imageResult = diary_ImageRepository.save(diary_image);
 
 			List<Object> result = new ArrayList<>();
@@ -64,5 +64,15 @@ public class DiaryService {
 			return null;
 		}
 
+	}
+
+	public List<Diary> readDiary(String plant_id) {
+		List<Diary> diaryList = diaryRepository.findAllByPlantId(Long.parseLong(plant_id));
+		if(diaryList != null) {
+			for(Diary item : diaryList) {
+				
+			}
+		}
+		return diaryList;
 	}
 }

@@ -1,17 +1,20 @@
 package com.smhrd.dream.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.smhrd.dream.controller.dto.PlantListDto;
+import com.smhrd.dream.entity.PlantList;
 import com.smhrd.dream.service.PlantListService;
 
 import lombok.RequiredArgsConstructor;
@@ -30,13 +33,24 @@ public class PlantListController {
 		if (cookies != null) {
 			for (Cookie cookie : cookies) {
 				if ("accessToken".equals(cookie.getName())) {
-					// 쿠키 이름이 "accessToken"인 경우 해당 쿠키의 값을 얻습니다.
 					 accessToken = cookie.getValue();
-					// accessToken을 Service로 전달하거나 사용할 수 있습니다.
 				}
 			}
 		}
 		return ResponseEntity.ok(plantListService.submit(plantObj, accessToken));
 	}
 
+	@GetMapping("/readPlantList")
+	public List<Optional<PlantList>> readPlantList(HttpServletRequest request) {
+		Cookie[] cookies = request.getCookies();
+		String accessToken = null;
+		if (cookies != null) {
+			for (Cookie cookie : cookies) {
+				if ("accessToken".equals(cookie.getName())) {
+					 accessToken = cookie.getValue();
+				}
+			}
+		}
+		return plantListService.readPlantList(accessToken);
+	}
 }

@@ -25,5 +25,7 @@ public class Diary_Image {
 	private Long diary_id;
 
 	private String image_url;
+	
+	private String registration_date;
 
 }
