@@ -1,5 +1,7 @@
 package com.smhrd.dream.controller.dto;
 
+import com.smhrd.dream.entity.Gardening;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PlantListDto {
 
+	private Long plantId;
 	private String image;
 	private String title;
 	private String start_date;
@@ -16,5 +19,5 @@ public class PlantListDto {
 	private String nickname;
 	private String message;
 	private String color;
-	private GardeningDto gardeningDto;
+	private Gardening gardening;
 }

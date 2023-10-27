@@ -23,7 +23,7 @@ public class PlantList {
 	@Id
 	@Column(name = "plant_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long plant_id;
+	private Long plantId;
 	
 	private Long id;
 	

@@ -41,7 +41,7 @@ public class PlantListController {
 	}
 
 	@GetMapping("/readPlantList")
-	public List<Optional<PlantList>> readPlantList(HttpServletRequest request) {
+	public List<PlantListDto> readPlantList(HttpServletRequest request) {
 		Cookie[] cookies = request.getCookies();
 		String accessToken = null;
 		if (cookies != null) {

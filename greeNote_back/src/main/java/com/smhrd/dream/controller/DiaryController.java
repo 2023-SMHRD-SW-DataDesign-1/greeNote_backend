@@ -51,8 +51,9 @@ public class DiaryController {
 		return diaryList;
 	}
 
-	@GetMapping("/readByDay/{registration_date}")
-	public List<Diary> readByDay(@PathVariable String registration_date, HttpServletRequest request) {
+	@GetMapping("/readByDay")
+	public List<DiaryCombinDto> readByDay(@RequestParam String registration_date, HttpServletRequest request) {
+		System.out.println(registration_date);
 		Cookie[] cookies = request.getCookies();
 		String accessToken = null;
 		if (cookies != null) {

@@ -71,14 +71,13 @@ public class DiaryService {
 
 	public List<DiaryCombinDto> readDiary(String plant_id) {
 		List<Diary> diaryList = diaryRepository.findAllByPlantId(Long.parseLong(plant_id));
-		List<Diary_Image> imgList = null;
-		List<DiaryCombinDto> diaryCombinList = new ArrayList<>(); 
+		Diary_Image imgList = null;
+		List<DiaryCombinDto> diaryCombinList = new ArrayList<>();
 		
 		if(diaryList != null) {
 			for(int i = 0; i < diaryList.size(); i++) {
-				// 사진 가져오기 구현할 것
 				 imgList = diary_ImageRepository.findByDiaryId(diaryList.get(i).getDiaryId());
-				 DiaryCombinDto diaryCombin = new DiaryCombinDto(diaryList.get(i), imgList.get(i));
+				 DiaryCombinDto diaryCombin = new DiaryCombinDto(diaryList.get(i), imgList);
 				 diaryCombinList.add(diaryCombin);
 			}
 		}
@@ -86,7 +85,7 @@ public class DiaryService {
 		return diaryCombinList;
 	}
 
-	public List<Diary> readByDay(String registration_date, String accessToken) {
+	public List<DiaryCombinDto> readByDay(String registration_date, String accessToken) {
 		Long id = null;
 		if (accessToken != null) {
 			byte[] keyBytes = Decoders.BASE64.decode(secretKey);
@@ -95,6 +94,20 @@ public class DiaryService {
 			id = Long.parseLong(claims.getSubject());
 		}
 		Specification<Diary> spec = DiarySpecification.withIdAndDate(id, registration_date);
-		return diaryRepository.findAll(spec);
+		
+		List<Diary> diaryList = diaryRepository.findAll(spec);
+		Diary_Image imgList = null;
+		List<DiaryCombinDto> diaryCombinList = new ArrayList<>();
+		
+		if(diaryList != null) {
+			for(int i = 0; i < diaryList.size(); i++) {
+				 imgList = diary_ImageRepository.findByDiaryId(diaryList.get(i).getDiaryId());
+				 DiaryCombinDto diaryCombin = new DiaryCombinDto(diaryList.get(i)
+						 , imgList);
+				 diaryCombinList.add(diaryCombin);
+			}
+		}
+		
+		return diaryCombinList;
 	}
 }

@@ -2,11 +2,11 @@ package com.smhrd.dream.service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.smhrd.dream.controller.dto.DiaryCombinDto;
 import com.smhrd.dream.controller.dto.GardeningDto;
 import com.smhrd.dream.controller.dto.PlantListDto;
 import com.smhrd.dream.entity.Gardening;
@@ -43,20 +43,20 @@ public class PlantListService {
 				plantObj.getMessage(), plantObj.getColor(), plantObj.getStart_date(), plantObj.getWatering_date());
 		PlantList plantResult = plantListRepository.save(plantList);
 
-		GardeningDto gardeningDto = plantObj.getGardeningDto();
-		Gardening gardening = new Gardening(null, plantResult.getPlant_id(), gardeningDto.getWatering(),
+		Gardening gardeningDto = plantObj.getGardening();
+		Gardening gardening = new Gardening(null, plantResult.getPlantId(), gardeningDto.getWatering(),
 				gardeningDto.getRepotting(), gardeningDto.getNutrition_management(), gardeningDto.getVentilation(),
-				true);
+				false);
 		Gardening gardenResult = gardeningRepository.save(gardening);
-		
+
 		List<Object> result = new ArrayList<>();
 		result.add(plantResult);
 		result.add(gardenResult);
-		
+
 		return result;
 	}
 
-	public List<Optional<PlantList>> readPlantList(String accessToken) {
+	public List<PlantListDto> readPlantList(String accessToken) {
 		Long id = null;
 		if (accessToken != null) {
 			byte[] keyBytes = Decoders.BASE64.decode(secretKey);
@@ -64,6 +64,21 @@ public class PlantListService {
 					.parseClaimsJws(accessToken).getBody();
 			id = Long.parseLong(claims.getSubject());
 		}
-		return plantListRepository.findAllById(id);
+		List<PlantList> plantList = plantListRepository.findAllById(id);
+		Gardening gardening = null;
+		List<PlantListDto> plantCombinList = new ArrayList<>();
+		if (plantList != null) {
+			for (int i = 0; i < plantList.size(); i++) {
+				gardening = gardeningRepository.findByPlantId(plantList.get(0).getPlantId());
+				PlantList plant = plantList.get(i);
+					PlantListDto plantCombin = new PlantListDto(plant.getPlantId(),
+							plant.getImage_url(), plant.getTitle(),
+							plant.getStart_date(), plant.getWatering_date(),
+							plant.getNickname(), plant.getMessage(), plant.getColor(),
+							gardening);
+					plantCombinList.add(plantCombin);
+			}
+		}
+		return plantCombinList;
 	}
 }

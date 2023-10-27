@@ -20,9 +20,10 @@ public class Gardening {
 	@Id
 	@Column(name = "gardening_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long gardening_id;
+	private Long gardeningId;
 	
-	private Long plant_id;
+	@Column(name = "plant_id")
+	private Long plantId;
 	
 	private int watering;
 	
