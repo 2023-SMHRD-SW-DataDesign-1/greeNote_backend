@@ -110,4 +110,23 @@ public class DiaryService {
 		
 		return diaryCombinList;
 	}
+
+	public DiaryCombinDto readOneDiary(String diaryId) {
+		Diary diary = diaryRepository.findByDiaryId(Long.parseLong(diaryId));
+		Diary_Image diary_Image = diary_ImageRepository.findByDiaryId(Long.parseLong(diaryId));
+		DiaryCombinDto diaryCombinDto = new DiaryCombinDto(diary, diary_Image);
+		return diaryCombinDto;
+	}
+
+	public List<Diary_Image> readDiaryImg(String plantId) {
+		List<Diary> diaryList = diaryRepository.findAllByPlantId(Long.parseLong(plantId));
+		List<Diary_Image> imageList = new ArrayList<>();
+		
+		for(Diary diary : diaryList) {
+			imageList.add(diary_ImageRepository.findByDiaryId(diary.getDiaryId()));
+		}
+		
+		return imageList;
+	}
+
 }

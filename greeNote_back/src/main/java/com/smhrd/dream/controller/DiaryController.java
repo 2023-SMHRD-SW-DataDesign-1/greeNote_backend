@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.smhrd.dream.controller.dto.DiaryCombinDto;
 import com.smhrd.dream.controller.dto.DiaryDto;
 import com.smhrd.dream.entity.Diary;
+import com.smhrd.dream.entity.Diary_Image;
 import com.smhrd.dream.service.DiaryService;
 
 import lombok.RequiredArgsConstructor;
@@ -65,4 +66,15 @@ public class DiaryController {
 		}
 		return diaryService.readByDay(registration_date, accessToken);
 	}
+	
+	@GetMapping("/readOneDiary")
+	public DiaryCombinDto readOneDiary(@RequestParam String diaryId) {
+		return diaryService.readOneDiary(diaryId);
+	}
+	
+	@GetMapping("/readDiaryImg")
+	public List<Diary_Image> readDiaryImg (@RequestParam String plantId) {
+		return diaryService.readDiaryImg(plantId);
+	}
+	
 }

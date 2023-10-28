@@ -9,4 +9,5 @@ import com.smhrd.dream.entity.Diary;
 
 public interface DiaryRepository extends JpaRepository<Diary, Long>, JpaSpecificationExecutor<Diary>{
 	List<Diary> findAllByPlantId(Long plantId);
+	Diary findByDiaryId(Long diaryId);
 }
