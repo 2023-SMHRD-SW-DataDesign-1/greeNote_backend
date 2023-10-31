@@ -1,5 +1,8 @@
 package com.smhrd.dream.service;
 
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -17,6 +20,10 @@ import com.smhrd.dream.jwt.TokenProvider;
 import com.smhrd.dream.repository.MemberRepository;
 import com.smhrd.dream.repository.RefreshTokenRepository;
 
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
 
 @Service
@@ -27,6 +34,8 @@ public class AuthService {
 	private final PasswordEncoder passwordEncoder;
 	private final TokenProvider tokenProvider;
 	private final RefreshTokenRepository refreshTokenRepository;
+	@Value("${jwt.secret}")
+	String secretKey;
 
 	@Transactional
 	public MemberResponseDto signup(MemberRequestDto memberRequestDto) {
@@ -85,10 +94,10 @@ public class AuthService {
 			throw new RuntimeException("토큰의 유저 정보가 일치하지 않습니다.");
 			// 사용 거부 명령을 전달한 뒤 로그인 페이지로 유도할 것
 		}
-		
+
 		// 5. 새로운 토큰 생성
 		TokenDto tokenDto = tokenProvider.generateTokenDto(authentication);
-		
+
 		// 6. 저장소 정보 업데이트
 		RefreshToken newRefreshToken = refreshToken.updateValue(tokenDto.getRefreshToken(), tokenDto.getGrantType(),
 				tokenDto.getAccessTokenExpiresIn());
@@ -96,5 +105,39 @@ public class AuthService {
 
 		// 토큰 발급
 		return tokenDto;
+	}
+
+	public Optional<Member> memberInfo(String accessToken) {
+		Long id = null;
+		if (accessToken != null) {
+			byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+			Claims claims = Jwts.parserBuilder().setSigningKey(Keys.hmacShaKeyFor(keyBytes)).build()
+					.parseClaimsJws(accessToken).getBody();
+			id = Long.parseLong(claims.getSubject());
+		}
+		return memberRepository.findById(id);
+	}
+
+	public MemberResponseDto updateMember(MemberRequestDto memberRequestDto) {
+		// MemberRequestDto에서 memberid 가져오기
+		String memberid = memberRequestDto.getMemberid();
+
+		// memberid를 사용하여 기존 회원 엔티티 검색
+		Optional<Member> existingMember = memberRepository.findByMemberid(memberid);
+
+		if (existingMember.isPresent()) {
+			// 기존 회원 엔티티가 존재하면 업데이트
+			Member member = existingMember.get();
+			member.updateFromRequest(memberRequestDto, passwordEncoder); // 업데이트 로직 적용
+
+			// 업데이트된 회원 엔티티를 저장하고 MemberResponseDto로 변환
+			return MemberResponseDto.of(memberRepository.save(member));
+		} else {
+			// 기존 회원 엔티티가 없으면 새로운 회원 엔티티 생성
+			Member member = memberRequestDto.toMember(passwordEncoder);
+
+			// 새로운 회원 엔티티를 저장하고 MemberResponseDto로 변환
+			return MemberResponseDto.of(memberRepository.save(member));
+		}
 	}
 }

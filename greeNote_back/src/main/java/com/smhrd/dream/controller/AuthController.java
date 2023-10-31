@@ -1,5 +1,7 @@
 package com.smhrd.dream.controller;
 
+import java.util.Optional;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -7,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +18,7 @@ import com.smhrd.dream.controller.dto.MemberRequestDto;
 import com.smhrd.dream.controller.dto.MemberResponseDto;
 import com.smhrd.dream.controller.dto.TokenDto;
 import com.smhrd.dream.controller.dto.TokenRequestDto;
+import com.smhrd.dream.entity.Member;
 import com.smhrd.dream.service.AuthService;
 
 import lombok.RequiredArgsConstructor;
@@ -32,7 +36,7 @@ public class AuthController {
 	}
 
 	@PostMapping("/login")
-	public void login(@RequestBody MemberRequestDto memberRequestDto, HttpServletRequest request,
+	public Optional<Member> login(@RequestBody MemberRequestDto memberRequestDto, HttpServletRequest request,
 			HttpServletResponse response) {
 		TokenDto jwt = authService.login(memberRequestDto);
 		Cookie cookie1 = new Cookie("accessToken", jwt.getAccessToken());
@@ -48,11 +52,18 @@ public class AuthController {
 		cookie2.setHttpOnly(true);
 		cookie2.setMaxAge(7200000);
 		cookie2.setSecure(true);
-
+		
 		response.addCookie(cookie1);
 		response.addCookie(cookie2);
+
+		return authService.memberInfo(jwt.getAccessToken());
 	}
 
+	@PostMapping("/update")
+	public ResponseEntity<MemberResponseDto> updateMember(@RequestBody MemberRequestDto memberRequestDto) {
+		return ResponseEntity.ok(authService.updateMember(memberRequestDto));
+	}
+	
 	@GetMapping("/reissue")
 	public void reissue(HttpServletRequest request, HttpServletResponse response) {
 		Cookie[] cookies = request.getCookies();

@@ -11,5 +11,6 @@ import com.smhrd.dream.entity.Member;
 public interface MemberRepository extends JpaRepository<Member, Long> {
     Optional<Member> findByMemberid(String memberid);
     boolean existsByMemberid(String memberid);
+	Optional<Member> findById(String memberid);
 }
 
