@@ -78,7 +78,7 @@ public class DiaryController {
 		return diaryService.readDiaryImg(plantId);
 	}
 	
-	@DeleteMapping("/deleteDiary")
+	@GetMapping("/deleteDiary")
 	public String deleteDiary (@RequestParam String diaryId) {
 		return diaryService.deleteDiary(diaryId);
 	}

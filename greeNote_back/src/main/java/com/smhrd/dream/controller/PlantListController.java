@@ -56,7 +56,7 @@ public class PlantListController {
 		return plantListService.readPlantList(accessToken);
 	}
 	
-	@DeleteMapping("/deletePlant")
+	@GetMapping("/deletePlant")
 	public String deletePlant(@RequestParam String plantId) {
 		return plantListService.deletePlant(plantId);
 	}
