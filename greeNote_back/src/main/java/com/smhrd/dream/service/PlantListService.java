@@ -9,8 +9,11 @@ import org.springframework.stereotype.Service;
 import com.smhrd.dream.controller.dto.DiaryCombinDto;
 import com.smhrd.dream.controller.dto.GardeningDto;
 import com.smhrd.dream.controller.dto.PlantListDto;
+import com.smhrd.dream.entity.Diary;
 import com.smhrd.dream.entity.Gardening;
 import com.smhrd.dream.entity.PlantList;
+import com.smhrd.dream.repository.DiaryRepository;
+import com.smhrd.dream.repository.Diary_ImageRepository;
 import com.smhrd.dream.repository.GardeningRepository;
 import com.smhrd.dream.repository.PlantListRepository;
 
@@ -26,6 +29,8 @@ public class PlantListService {
 
 	private final PlantListRepository plantListRepository;
 	private final GardeningRepository gardeningRepository;
+	private final DiaryRepository diaryRepository;
+	private final Diary_ImageRepository diary_ImageRepository;
 
 	@Value("${jwt.secret}")
 	String secretKey;
@@ -71,14 +76,31 @@ public class PlantListService {
 			for (int i = 0; i < plantList.size(); i++) {
 				gardening = gardeningRepository.findByPlantId(plantList.get(0).getPlantId());
 				PlantList plant = plantList.get(i);
-					PlantListDto plantCombin = new PlantListDto(plant.getPlantId(),
-							plant.getImage_url(), plant.getTitle(),
-							plant.getStart_date(), plant.getWatering_date(),
-							plant.getNickname(), plant.getMessage(), plant.getColor(),
-							gardening);
-					plantCombinList.add(plantCombin);
+				PlantListDto plantCombin = new PlantListDto(plant.getPlantId(), plant.getImage_url(), plant.getTitle(),
+						plant.getStart_date(), plant.getWatering_date(), plant.getNickname(), plant.getMessage(),
+						plant.getColor(), gardening);
+				plantCombinList.add(plantCombin);
 			}
 		}
 		return plantCombinList;
+	}
+
+	public String deletePlant(String plantId) {
+		try {
+			List<Diary> diaryList = diaryRepository.findAllByPlantId(Long.parseLong(plantId));
+			for (Diary diary : diaryList) {
+				diary_ImageRepository.delete(diary_ImageRepository.findByDiaryId(diary.getDiaryId()));
+				diaryRepository.delete(diaryRepository.findByDiaryId(diary.getDiaryId()));
+			}
+			gardeningRepository.delete(gardeningRepository.findByPlantId(Long.parseLong(plantId)));
+			plantListRepository.delete(plantListRepository.findByPlantId(Long.parseLong(plantId)));
+			
+			String result = "success";
+			return result;
+		} catch (Exception e) {
+			System.out.println(e);
+			String result = "fail";
+			return result;
+		}
 	}
 }
