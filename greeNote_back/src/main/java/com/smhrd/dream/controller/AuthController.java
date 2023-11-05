@@ -44,7 +44,7 @@ public class AuthController {
 				.path("/")
 				.sameSite("None")
 				.httpOnly(true)
-				.domain("greenote.site")
+				.domain("15.164.213.225")
 				.maxAge(7200000)
 				.secure(true)
 				.build();
@@ -53,7 +53,7 @@ public class AuthController {
 				.path("/")
 				.sameSite("None")
 				.httpOnly(true)
-				.domain("greenote.site")
+				.domain("15.164.213.225")
 				.maxAge(7200000)
 				.secure(true)
 				.build();
