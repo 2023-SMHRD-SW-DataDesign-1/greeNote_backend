@@ -12,6 +12,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
         	.allowedOrigins("http://localhost:3000"
         			,"https://greenote.site"
+        			,"https://greenote.site:8090"
         			,"https://15.164.213.225:3000"
         			,"http://15.164.213.225:3000") // 허용할 출처
             .allowedMethods("GET", "POST") // 허용할 HTTP method
