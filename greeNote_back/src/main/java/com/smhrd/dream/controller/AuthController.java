@@ -41,14 +41,14 @@ public class AuthController {
 		TokenDto jwt = authService.login(memberRequestDto);
 		Cookie cookie1 = new Cookie("accessToken", jwt.getAccessToken());
 		cookie1.setPath("/");
-		cookie1.setDomain("greenote.site");
+		cookie1.setDomain(".greenote.site");
 		cookie1.setHttpOnly(true);
 		cookie1.setMaxAge(36000);
 		cookie1.setSecure(true);
 
 		Cookie cookie2 = new Cookie("refreshToken", jwt.getRefreshToken());
 		cookie2.setPath("/");
-		cookie2.setDomain("greenote.site");
+		cookie2.setDomain(".greenote.site");
 		cookie2.setHttpOnly(true);
 		cookie2.setMaxAge(7200000);
 		cookie2.setSecure(true);
@@ -85,14 +85,14 @@ public class AuthController {
 		
 		Cookie cookie1 = new Cookie("accessToken", jwt.getAccessToken());
 		cookie1.setPath("/");
-		cookie1.setDomain("greenote.site");
+		cookie1.setDomain(".greenote.site");
 		cookie1.setHttpOnly(true);
 		cookie1.setMaxAge(36000);
 		cookie1.setSecure(true);
 
 		Cookie cookie2 = new Cookie("refreshToken", jwt.getRefreshToken());
 		cookie2.setPath("/");
-		cookie2.setDomain("greenote.site");
+		cookie2.setDomain(".greenote.site");
 		cookie2.setHttpOnly(true);
 		cookie2.setMaxAge(7200000);
 		cookie2.setSecure(true);
