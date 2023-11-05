@@ -6,6 +6,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.http.ResponseCookie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,22 +40,43 @@ public class AuthController {
 	public Optional<Member> login(@RequestBody MemberRequestDto memberRequestDto, HttpServletRequest request,
 			HttpServletResponse response) {
 		TokenDto jwt = authService.login(memberRequestDto);
-		Cookie cookie1 = new Cookie("accessToken", jwt.getAccessToken());
-		cookie1.setPath("/");
-		cookie1.setDomain(".site");
-		cookie1.setHttpOnly(true);
-		cookie1.setMaxAge(36000);
-		cookie1.setSecure(true);
-
-		Cookie cookie2 = new Cookie("refreshToken", jwt.getRefreshToken());
-		cookie2.setPath("/");
-		cookie2.setDomain(".site");
-		cookie2.setHttpOnly(true);
-		cookie2.setMaxAge(7200000);
-		cookie2.setSecure(true);
+		ResponseCookie cookie1 = ResponseCookie.from("accessToken", jwt.getAccessToken())
+				.path("/")
+				.sameSite("None")
+				.httpOnly(true)
+				.domain("greenote.site")
+				.maxAge(7200000)
+				.secure(true)
+				.build();
 		
-		response.addCookie(cookie1);
-		response.addCookie(cookie2);
+		ResponseCookie cookie2 = ResponseCookie.from("refreshToken", jwt.getRefreshToken())
+				.path("/")
+				.sameSite("None")
+				.httpOnly(true)
+				.domain("greenote.site")
+				.maxAge(7200000)
+				.secure(true)
+				.build();
+		
+		response.setHeader("Set-Cookie", cookie1.toString());
+		response.addHeader("Set-Cookie", cookie2.toString());
+		
+//		Cookie cookie1 = new Cookie("accessToken", jwt.getAccessToken());
+//		cookie1.setPath("/");
+//		cookie1.setDomain("greenote.site");
+//		cookie1.setHttpOnly(true);
+//		cookie1.setMaxAge(36000);
+//		cookie1.setSecure(true);
+//
+//		Cookie cookie2 = new Cookie("refreshToken", jwt.getRefreshToken());
+//		cookie2.setPath("/");
+//		cookie2.setDomain("greenote.site");
+//		cookie2.setHttpOnly(true);
+//		cookie2.setMaxAge(7200000);
+//		cookie2.setSecure(true);
+//		
+//		response.addCookie(cookie1);
+//		response.addCookie(cookie2);
 
 		return authService.memberInfo(jwt.getAccessToken());
 	}
@@ -85,14 +107,14 @@ public class AuthController {
 		
 		Cookie cookie1 = new Cookie("accessToken", jwt.getAccessToken());
 		cookie1.setPath("/");
-		cookie1.setDomain(".site");
+		cookie1.setDomain("greenote.site");
 		cookie1.setHttpOnly(true);
 		cookie1.setMaxAge(36000);
 		cookie1.setSecure(true);
 
 		Cookie cookie2 = new Cookie("refreshToken", jwt.getRefreshToken());
 		cookie2.setPath("/");
-		cookie2.setDomain(".site");
+		cookie2.setDomain("greenote.site");
 		cookie2.setHttpOnly(true);
 		cookie2.setMaxAge(7200000);
 		cookie2.setSecure(true);
