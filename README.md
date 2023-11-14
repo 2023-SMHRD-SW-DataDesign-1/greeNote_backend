@@ -154,7 +154,8 @@
 <br>
 
 ### 다이어리 & 질병분류기
-![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/e3b2d234-9ce4-42dd-870b-1ed0062b3574)
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/0845f4a7-e627-4349-b4f5-22398447ef13)
+
 
 <br>
 
@@ -172,10 +173,10 @@
   </tr>
     <tr>
     <td>계정링크</td>
-    <td><a href="https://github.com/philosokey-M" target='_blank'>github</a></td>
-    <td><a href="https://github.com/DeboraKim1016" target='_blank'>github</a></td>
+    <td><a href="https://github.com/KwangYoungHeo" target='_blank'>github</a></td>
     <td><a href="https://github.com/dldbsgh00005" target='_blank'>github</a></td>
-    <td><a href="https://github.com/jinchanho" target='_blank'>github</a></td>
+    <td><a href="https://github.com/pbnc1123" target='_blank'>github</a></td>
+    <td><a href="https://github.com/rlawlgp0197" target='_blank'>github</a></td>
     <td><a href="https://github.com/jinchanho" target='_blank'>github</a></td>
   </tr>
   <tr>
