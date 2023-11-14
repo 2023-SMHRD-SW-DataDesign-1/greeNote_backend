@@ -93,7 +93,7 @@
     <tr>
         <td>배포</td>
         <td>
-            <img src="https://img.shields.io/badge/AWS EC2-FF9900?style=for-the-badge&logo=AWS EC2&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Amazonec2-FF9900?style=for-the-badge&logo=AWS EC2&logoColor=white"/>
         </td>
     </tr>
     <tr>
