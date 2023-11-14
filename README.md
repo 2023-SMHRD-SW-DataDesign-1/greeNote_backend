@@ -34,25 +34,23 @@
 <p>- 테스트 데이터를 통해 최종 모델의 정확도 검증</p>
 <p>- 이미지 활용 스타일 전이(VGG19 모델)</p>
 
-#### 데이터 수집
-<p>- AI-Hub(시설 작물 질병 진단 이미지) 데이터 수집</p>
-<p>- Kaggle(식물 질병 이미지) 데이터 수집</p>
-<p>- Crawling을 통해 식물이미지, 스타일이미지 데이터 수집</p>
+#### ResNet34 모델을 통한 이미지 활용 식물 질병 예측
+<p>- CNN 기반으로 만들어진 ResNet34 모델 로드</p>
+<p>- 이미지 데이터, fast ai 라이브러리를 이용하여 모델 학습</p>
 
-#### 데이터 수집
-<p>- AI-Hub(시설 작물 질병 진단 이미지) 데이터 수집</p>
-<p>- Kaggle(식물 질병 이미지) 데이터 수집</p>
-<p>- Crawling을 통해 식물이미지, 스타일이미지 데이터 수집</p>
+#### VGG19 모델을 통한 스타일 전이
+<p>- CNN 기반으로 만들어진 VGG19 모델 로드</p>
+<p>- 이미지 데이터, Tensor Flow 라이브러리를 이용하여 모델 학습</p>
 
-#### 데이터 수집
-<p>- AI-Hub(시설 작물 질병 진단 이미지) 데이터 수집</p>
-<p>- Kaggle(식물 질병 이미지) 데이터 수집</p>
-<p>- Crawling을 통해 식물이미지, 스타일이미지 데이터 수집</p>
+#### 웹 구축 및 기능 구현
+<p>- HTML/Sass를 통한 웹페이지 구현</p>
+<p>- React, Spring Boot를 활용하여 웹페이지 기능 구현</p>
+<p>- Python, JavaScript, Flask를 활용하여 딥러닝 모델과 실시간 연동</p>
 
-#### 데이터 수집
-<p>- AI-Hub(시설 작물 질병 진단 이미지) 데이터 수집</p>
-<p>- Kaggle(식물 질병 이미지) 데이터 수집</p>
-<p>- Crawling을 통해 식물이미지, 스타일이미지 데이터 수집</p>
+#### 서버 구축
+<p>- Node 서버로 React 웹 서버 구축</p>
+<p>- Spring Boot 내장 Apache Tomcat을 이용한 백엔드 서버 구축</p>
+<p>- Flask 서버로 딥러닝 모델 서버 구축</p>
 
 ## ⛏️ 기술스택
 <table>
@@ -124,30 +122,31 @@
 
 
 ## ⚙️ 시스템 아키텍처
-![시스템 아키텍처](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/358e60d1-9ccd-4809-92e8-5df085026483)
-
-
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/dc4c3c30-354f-4406-94f8-29749c4c5ca3)
 
 
 
 ## ✏️ 유스케이스
-![image](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134522874/95226750-63e2-44ac-9193-0dd155e1ad58)
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/6d7d99f1-955f-416e-8a6a-585b1dc9ad47)
+
 
 
 ## ✏️ 서비스 흐름도
-![서비스흐름도](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/79f5be60-a13e-4f37-aac9-c0877c9fa03b)
-
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/04dfd7fd-1928-4e7c-86c8-6f2abdade419)
 
 
 
 ## ✏️ ER 다이어그램
-![er다이어그램](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/105475267/5d6c8d7f-e6d7-490c-8c81-499411820801)
+<img width="39" alt="image" src="https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/3682828e-c573-4f54-84db-2c69c80fd566">
+
+
 
 <br>
  
 ## 🖥️ 화면구성
 ### 메인
-![image](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/0e5fe8fe-c692-4b5a-b1ff-8455546acae2)
+<img width="39" alt="image" src="https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/f8fede0a-7afe-4612-a449-c92a8befb029">
+
 
 <br>
 
