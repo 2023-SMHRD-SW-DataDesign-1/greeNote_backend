@@ -85,15 +85,15 @@
     <tr>
         <td>AI</td>
         <td>
-          <img src="https://img.shields.io/badge/ResNet34-2C2255?style=for-the-badge&logo=ResNet34&logoColor=white" />
-          <img src="https://img.shields.io/badge/VGG19-007ACC?style=for-the-badge&logo=VGG-19&logoColor=white" />
-          <img src="https://img.shields.io/badge/Fast_ai-F37626?style=for-the-badge&logo=Fast_ai&logoColor=white" />
+          <img src="https://img.shields.io/badge/ResNet34-2C2255?style=for-the-badge&logo=ResNet34&logoColor=white"/>
+          <img src="https://img.shields.io/badge/VGG19-007ACC?style=for-the-badge&logo=VGG-19&logoColor=white"/>
+          <img src="https://img.shields.io/badge/Fast_ai-F37626?style=for-the-badge&logo=Fast_ai&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>배포</td>
         <td>
-            <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white" />
+            <img src="https://img.shields.io/badge/AWS EC2-FF9900?style=for-the-badge&logo=AWS EC2&logoColor=white"/>
         </td>
     </tr>
     <tr>
