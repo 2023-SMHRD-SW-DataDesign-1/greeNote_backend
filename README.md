@@ -59,21 +59,18 @@
         <th>내용</th>
     </tr>
     <tr>
-        <td>Front</td>
+        <td>Front</td>
         <td>
           <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white">
-          <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white" />
-          <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white" />
-          <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white" />
-          <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+          <img src="https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>Back</td>
         <td>
-          <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white" />
-          <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">
-          <img src="https://img.shields.io/badge/lombok-F80000?style=for-the-badge&logo&logoColor=white" />
+          <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white" />
+          <img src="https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=SpringSecurity&logoColor=white">
+          <img src="https://img.shields.io/badge/JPA-F80000?style=for-the-badge&logo=JPA&logoColor=white" />
           <img src="https://img.shields.io/badge/Mybatis-181717?style=for-the-badge&logo&logoColor=white" />
           <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" />
         </td>
