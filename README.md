@@ -70,9 +70,10 @@
         <td>
           <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=SpringBoot&logoColor=white" />
           <img src="https://img.shields.io/badge/SpringSecurity-6DB33F?style=for-the-badge&logo=SpringSecurity&logoColor=white">
-          <img src="https://img.shields.io/badge/JPA-F80000?style=for-the-badge&logo=JPA&logoColor=white" />
-          <img src="https://img.shields.io/badge/Mybatis-181717?style=for-the-badge&logo&logoColor=white" />
-          <img src="https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apachemaven&logoColor=white" />
+          <img src="https://img.shields.io/badge/JPA-F80000?style=for-the-badge&logo=JPA&logoColor=white"/>
+          <img src="https://img.shields.io/badge/Mybatis-181717?style=for-the-badge&logo&logoColor=white"/>
+          <img src="https://img.shields.io/badge/JWT-C71A36?style=for-the-badge&logo=JWT&logoColor=white"/>
+          <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=Flask&logoColor=white"/>
         </td>
     </tr>
    <tr>
