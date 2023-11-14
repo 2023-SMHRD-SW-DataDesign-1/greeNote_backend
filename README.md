@@ -148,7 +148,8 @@
 <br>
 
 ### 메인상세페이지
-![image (1)](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/daec1534-2021-47e4-973a-1dedd3ae7972)
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/d3f4dde5-2504-451b-8c7e-d628eb6afc46)
+
 
 <br>
 
@@ -191,6 +192,7 @@
     <td> 전체화면설계 및 구현</td>
     <td> 회원관리기능 </td>
     <td> 크롤링 </td>
+    <td> 크롤링 </td>
   </tr>
   <tr>
     <td>  </td>
@@ -198,6 +200,7 @@
     <td>   </td>
     <td> SNS로그인 기능 구현 </td>
     <td> DB설계 및 구축 </td>
+    <td> 크롤링 </td>
   </tr>
   <tr>
     <td>  </td>
@@ -205,6 +208,7 @@
     <td>   </td>
     <td> 결제 API </td>
     <td>  프론트 JS담당  </td>
+    <td> 크롤링 </td>
   </tr>
   <tr>
     <td>  </td>
@@ -212,6 +216,7 @@
     <td>   </td>
     <td> 장바구니 </td>
     <td>  DTO 구축  </td>
+    <td> 크롤링 </td>
   </tr>
   <tr>
     <td>  </td>
@@ -219,6 +224,7 @@
     <td>   </td>
     <td>   </td>
     <td>   </td>
+    <td> 크롤링 </td>
   </tr> 
 </table>
 
@@ -230,7 +236,7 @@
 <p>'sameSite' 속성을 'None'으로 설정해야 하지만 https에서만 가능한 설정, https 설정을 위해 AWS의 ACM 인증서와 로드 밸런서를 사용해서 https 적용 완료! 쿠키 전달 완료!</p>
 <br>
 <br>
-<h3>AI</h3>
+<h3>AI</h3>
 <p>질병이 2개 이상 나타나는 이미지들로 인해 분류가 잘 되지 않는 상황이 발생</p>
 <p>질병이 1개만 나타나는 이미지들을 선별하여 데이터셋에 채택 후 학습하여 해결!</p>
 <br>
