@@ -1,4 +1,4 @@
-# 🧶 수수한 사람들(팀명: 404)
+# 🌱 greeNote(팀명: 드림)
 ![image](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/105475267/2072f8e2-2fe5-4b9c-a09e-df230e3d7bb4)
 
 
