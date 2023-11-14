@@ -196,6 +196,7 @@
     <td> DB 설계, ERD 설계 </td>
   </tr>
   <tr>
+    <td>  </td>
     <td> AWS를 사용한 서비스 배포 </td>
     <td> ResNet34 모델을 통한 이미지 활용 식물 질병 진단 기능 </td>
     <td> 메인 페이지 </td>
