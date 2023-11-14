@@ -51,6 +51,7 @@
 <p>- Node 서버로 React 웹 서버 구축</p>
 <p>- Spring Boot 내장 Apache Tomcat을 이용한 백엔드 서버 구축</p>
 <p>- Flask 서버로 딥러닝 모델 서버 구축</p>
+<br>
 
 ## ⛏️ 기술스택
 <table>
