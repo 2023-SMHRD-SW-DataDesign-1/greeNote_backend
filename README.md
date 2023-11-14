@@ -137,47 +137,36 @@
 
 
 ## ✏️ ER 다이어그램
-<img width="39" alt="image" src="https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/3682828e-c573-4f54-84db-2c69c80fd566">
-
-
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/8e444f1e-4a61-42d1-9baf-b3ee87a52f78)
 
 <br>
  
 ## 🖥️ 화면구성
 ### 메인
-<img width="39" alt="image" src="https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/f8fede0a-7afe-4612-a449-c92a8befb029">
-
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/3c209798-f662-40b9-b976-d056e081a87a)
 
 <br>
 
-### sns 채널 메인
+### 메인상세페이지
 ![image (1)](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/daec1534-2021-47e4-973a-1dedd3ae7972)
 
 <br>
 
-### sns 피드
-![image (2)](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/1c8e8cb1-32e5-47e5-91e9-5ea7b7c6ad1b)
+### 다이어리 & 질병분류기
+![image](https://github.com/2023-SMHRD-SW-DataDesign-1/greeNote_backend/assets/105475267/e3b2d234-9ce4-42dd-870b-1ed0062b3574)
 
 <br>
 
-### 상품상세페이지
-![image](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/f8179a00-787a-41c9-83ca-27c847d77f3d)
-
-<br>
-
-### 주문페이지
-![image](https://github.com/2023-SMHRD-SW-DataDesign-1/404-change-/assets/134493664/788c1f6e-c650-41c0-997b-fc6ebda16abf)
-
-<br>
 
 ## 👑 팀원역할
 
 <table>
   <tr>
     <td>이름</td>
-    <td>김지홍</td>
-    <td>김드보라</td> 
-    <td>이윤호</td>
+    <td>허광영</td>
+    <td>이윤호</td> 
+    <td>유한솔</td>
+    <td>김지혜</td>
     <td>진찬호</td>
   </tr>
     <tr>
@@ -186,13 +175,15 @@
     <td><a href="https://github.com/DeboraKim1016" target='_blank'>github</a></td>
     <td><a href="https://github.com/dldbsgh00005" target='_blank'>github</a></td>
     <td><a href="https://github.com/jinchanho" target='_blank'>github</a></td>
+    <td><a href="https://github.com/jinchanho" target='_blank'>github</a></td>
   </tr>
   <tr>
     <td>담당</td>
     <td> PM / Back-End </td>
+    <td> DB / AI </td>
     <td> Front-End </td>
-    <td> Back-End </td>
-    <td> DB / Front-End </td>
+    <td> Front-End </td>
+    <td> DB / AI </td>
   </tr>
   <tr>
     <td>역할</td>
@@ -232,26 +223,15 @@
 </table>
 
 
-
-
 ## 🔑 트러블슈팅
 <br>
-<h3>실시간 채팅 </h3>
-<p>실시간 채팅의 데이터 전송 방식을 서버를 항상 열어두는 long polling방식으로 개발을 했으나 서버를 열어둔 채로 유지하는 과정이 불안정해서 잦은 에러가 발생했습니다.</p>
-<p>long polling 방식이 아닌 web socket방식으로 변경하자 전보다 서버가 안정적으로 운영되었고 단체 채팅도 가능하게 되었습니다. </p>
+<h3>Back</h3>
+<p>JWT 토큰을 쿠키로 전달하려 했지만 전달되지 않는 문제 발생</p>
+<p>'sameSite' 속성을 'None'으로 설정해야 하지만 https에서만 가능한 설정, https 설정을 위해 AWS의 ACM 인증서와 로드 밸런서를 사용해서 https 적용 완료! 쿠키 전달 완료!</p>
 <br>
 <br>
-<h3>mybatis error </h3>
-<p>'sqlSession is null' 이라는 에러가 반복적으로 발생했습니다. mybatis 환경이나 mapper의 namespace 등 틀린 부분이 없었는데도 에러가 반복되었습니다.</p>
-<p>DAO의 메소드 안에 mapper로 보낼 때 쓰는 ID값 앞에 'com.smhrd.FeedMapper.showFeed'라고 주소값을 직접 적어주니 정상적으로 실행됐습니다. </p>
+<h3>AI</h3>
+<p>질병이 2개 이상 나타나는 이미지들로 인해 분류가 잘 되지 않는 상황이 발생</p>
+<p>질병이 1개만 나타나는 이미지들을 선별하여 데이터셋에 채택 후 학습하여 해결!</p>
 <br>
 <br>
-<h3>카카오 SNS로그인 API error </h3>
-<p>카카오 로그인API를 실행시키자 404에러가 발생했습니다.</p>
-<p>원인을 몰라 카카오 관리자에게 문의하자 사용중인 API가 구버전인 것을 알게 되었고</p>
-<p>신버전으로 바꾸자 정상적으로 실행되었습니다.</p>
-<br>
-<br>
-<h3>크롤링 </h3>
-<p>실시간으로 데이터가 바뀌는 사이트에서 크롤링을 하다보니 동시에 여러 페이지의 데이터를 수집해야 했었는데 이 과정에서 원하는 데이터만 가져오는 것에 어려움이 많았습니다.</p>
-<p>그래서 octopus라는 크롤링 tool을 활용해서 원하는 데이터만을 제대로 크롤링하는데 성공했습니다.</p>
