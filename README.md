@@ -79,17 +79,15 @@
    <tr>
         <td>DB</td>
         <td>
-          <img src="https://img.shields.io/badge/KakaoLogin-FFCD00?style=for-the-badge&logo=Kakao&logoColor=white" />
-          <img src="https://img.shields.io/badge/Octoparse-007ACC?style=for-the-badge&logo=octopusdeploy&logoColor=white" />
-          <img src="https://img.shields.io/badge/PortOne-F05032?style=for-the-badge&logo=&logoColor=white" />
+          <img src="https://img.shields.io/badge/Mysql-4479A1?style=for-the-badge&logo=Mysql&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>AI</td>
         <td>
-          <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white" />
-          <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white" />
-          <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=Jupyter&logoColor=white" />
+          <img src="https://img.shields.io/badge/ResNet34-2C2255?style=for-the-badge&logo=ResNet34&logoColor=white" />
+          <img src="https://img.shields.io/badge/VGG19-007ACC?style=for-the-badge&logo=VGG-19&logoColor=white" />
+          <img src="https://img.shields.io/badge/Fast_ai-F37626?style=for-the-badge&logo=Fast_ai&logoColor=white" />
         </td>
     </tr>
     <tr>
